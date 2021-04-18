@@ -9,8 +9,20 @@ describe('square', () => {
 
   test('should contain button', () => {
     const wrapper = shallow(<Square />);
-    // const input = wrapper.find('button');
 
     expect(wrapper.find('button')).toHaveLength(1);
+  });
+
+  test('should render value', () => {
+    const wrapper = shallow(<Square value={'test value'}/>);
+    expect(wrapper.find('button').text()).toEqual('test value');
+  });
+
+  test('should fire onClick', () => {
+    const mockFn = jest.fn();
+    const wrapper = shallow(<Square value={'test value'} onClick={mockFn}/>);
+    wrapper.find('button').simulate('click');
+
+    expect(mockFn).toHaveBeenCalled();
   });
 })

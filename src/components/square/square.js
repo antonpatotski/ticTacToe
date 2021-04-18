@@ -1,3 +1,3 @@
 export default ({ onClick, value }) => {
-  return (<button onClick={onClick}>{ value }</button>);
+  return <button onClick={ onClick }>{ value }</button>;
 }
