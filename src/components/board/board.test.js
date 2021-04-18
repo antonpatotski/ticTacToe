@@ -1,7 +1,7 @@
 import Board from './board';
+import Square from '../square/square';
 
 import { shallow } from 'enzyme';
-import Square from "../square/square";
 
 describe('Board', () => {
   test('should be exist', () => {
@@ -10,8 +10,9 @@ describe('Board', () => {
 
   test('should render exact numbers of squares', () => {
     const squares = [1, 2];
-    const wrapper = shallow(<Square squares={squares}/>);
+    const wrapper = shallow(<Board squares={squares}/>);
+    console.log(wrapper);
 
-    expect(wrapper.find('Square')).toHaveLength(2);
+    expect(wrapper.find(Square)).toHaveLength(2);
   });
 })
