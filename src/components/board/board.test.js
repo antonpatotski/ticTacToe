@@ -11,8 +11,15 @@ describe('Board', () => {
   test('should render exact numbers of squares', () => {
     const squares = [1, 2];
     const wrapper = shallow(<Board squares={squares}/>);
-    console.log(wrapper);
 
     expect(wrapper.find(Square)).toHaveLength(2);
+  });
+
+  test('should contain squares values', () => {
+    const squares = ['test 1', 'test 2'];
+    const wrapper = shallow(<Board squares={squares}/>);
+
+    expect(wrapper.find(Square).at(0).props().value).toBe('test 1');
+    expect(wrapper.find(Square).at(0).props().value).toBe('test 2');
   });
 })
