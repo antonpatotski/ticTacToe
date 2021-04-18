@@ -1,7 +1,7 @@
 import App from './App';
 
-describe('Testing tic tac toe game', () => {
-  test('App should be exist', () => {
+describe('App', () => {
+  test('should be exist', () => {
     expect(App).toBeDefined();
   });
 })
