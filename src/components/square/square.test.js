@@ -15,6 +15,7 @@ describe('square', () => {
 
   test('should render value', () => {
     const wrapper = shallow(<Square value={'test value'}/>);
+
     expect(wrapper.find('button').text()).toEqual('test value');
   });
 
