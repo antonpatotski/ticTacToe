@@ -27,7 +27,7 @@ describe('findWinner', () => {
   });
 
   describe('should return "draw" for draw', () => {
-    const squaresWithoutWinner = ["X", "O", "X", "O", "X", "O", "X", "X", "O"];
+    const squaresWithoutWinner = ["X", "O", "X", "X", "O", "O", "O", "X", "X"];
 
     expect(findWinner(squaresWithoutWinner)).toBe("draw");
   });

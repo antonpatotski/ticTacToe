@@ -7,5 +7,8 @@ export const findWinner = (squares) => {
     if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) return squares[a];
   }
 
-  return null;
+  const isGameFinished = squares.findIndex(square => square === null) === -1;
+  const isDraw = isGameFinished && 'draw';
+
+  return isDraw || null;
 }
