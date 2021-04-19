@@ -1,7 +1,7 @@
 import App from './App';
 import Board from "./components/board/board";
 
-import {shallow} from "enzyme";
+import {shallow, mount} from "enzyme";
 
 describe('App', () => {
   test('should be exist', () => {
@@ -31,4 +31,16 @@ describe('App', () => {
 
     expect(wrapper.find('.app-body__turn')).toBeDefined();
   });
+
+  test('should handle square click', () => {
+    const wrapper = mount(<App />);
+    let squares = wrapper.find(Board).props().squares;
+
+    expect(squares.every(square => square === null)).toBe(true)
+    wrapper.find('.square').at(0).simulate('click');
+
+    squares = wrapper.find(Board).props().squares;
+
+    expect(squares).toEqual(["X", null, null, null, null, null, null, null, null]);
+  })
 })

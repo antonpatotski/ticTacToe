@@ -1,4 +1,6 @@
 .board {
+  display: flex;
+  flex-wrap: wrap;
   overflow: hidden;
   margin: auto;
   width: 300px;
