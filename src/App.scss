@@ -1,4 +1,11 @@
 .app-body {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
   margin: 10px auto auto;
   max-width: 1200px;
+}
+
+.start-button {
+  margin-top: 15px;
 }

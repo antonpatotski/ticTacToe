@@ -8,6 +8,7 @@ export  default () => {
   return (
     <div className="app-body">
       <Board squares={arrayExample}></Board>
+      <button className="start-button">Start new game</button>
     </div>
   )
 }
