@@ -61,7 +61,7 @@ describe('App', () => {
     expect(squares).toEqual([null, null, null, null, null, null, null, null, null]);
   })
 
-  test('avoid to click twice on the same element', () => {
+  test('should forbid to click twice on the same element', () => {
     const wrapper = mount(<App />);
     let squares = wrapper.find(Board).props().squares;
 
