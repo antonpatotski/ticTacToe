@@ -23,6 +23,6 @@ describe('findWinner', () => {
   describe('should return undefined if no winner', () => {
     const squaresWithoutWinner = ["test name", "test name", null, null, null, null, null, null, null];
 
-    expect(findWinner(squaresWithoutWinner)).toBe(false);
+    expect(findWinner(squaresWithoutWinner)).toBe(null);
   });
 })
