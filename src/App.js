@@ -9,6 +9,7 @@ export  default () => {
     <div className="app-body">
       <Board squares={arrayExample}></Board>
       <button className="start-button">Start new game</button>
+      <button className="reset-move">Reset move</button>
     </div>
   )
 }
