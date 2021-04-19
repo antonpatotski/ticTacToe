@@ -19,4 +19,10 @@ describe('App', () => {
 
     expect(wrapper.find('.start-button')).toBeDefined();
   });
+
+  test('should contain reset move button', () => {
+    const wrapper = shallow(<App />);
+
+    expect(wrapper.find('.start-button')).toBeDefined();
+  });
 })
