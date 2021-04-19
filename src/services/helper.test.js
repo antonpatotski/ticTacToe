@@ -1,7 +1,7 @@
 import { findWinner } from './helper';
 
 describe('findWinner', () => {
-  describe('should return symbol of winner for all win cases', () => {
+  describe('should return name of winner for all win cases', () => {
     const squaresWithWinner = [
       ["test name", "test name", "test name", null, null, null, null, null, null],
       [null, null, null, "test name", "test name", "test name", null, null, null],
@@ -18,5 +18,11 @@ describe('findWinner', () => {
         expect(findWinner(currentCase)).toBe('test name');
       })
     })
+  });
+
+  describe('should return undefined if no winner', () => {
+    const squaresWithoutWinner = ["test name", "test name", null, null, null, null, null, null, null];
+
+    expect(findWinner(squaresWithoutWinner)).toBe(false);
   });
 })
