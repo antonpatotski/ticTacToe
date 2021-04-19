@@ -44,11 +44,13 @@ export  default () => {
   }
 
   const getMoveRemind = () => {
-    return (
-      <>
-        Next turn is <b>{isXNextTurn ? 'X' : 'O'}</b>
-      </>
-    )
+    if (winner === 'draw') {
+      return 'Game over it\'s draw'
+    } else if (winner !== null) {
+      return `The winner is ${winner}`;
+    }
+
+    return `Next turn is ${isXNextTurn ? 'X' : 'O'}`
   }
 
   return (
