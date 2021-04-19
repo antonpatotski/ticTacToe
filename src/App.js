@@ -9,8 +9,8 @@ export  default () => {
   return (
     <div className="app-body">
       <Board squares={arrayExample}></Board>
-      <Button className="app-body__button" variant="primary">Start new game</Button>
-      <Button className="app-body__button" variant="info">Reset move</Button>
+      <Button className="app-body__button app-body__button--new" variant="primary">Start new game</Button>
+      <Button className="app-body__button app-body__button--reset" variant="info">Reset move</Button>
     </div>
   )
 }

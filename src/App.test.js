@@ -17,12 +17,12 @@ describe('App', () => {
   test('should contain start game button', () => {
     const wrapper = shallow(<App />);
 
-    expect(wrapper.find('.start-button')).toBeDefined();
+    expect(wrapper.find('.app-body__button--new')).toHaveLength(1);
   });
 
   test('should contain reset move button', () => {
     const wrapper = shallow(<App />);
 
-    expect(wrapper.find('.start-button')).toBeDefined();
+    expect(wrapper.find('.app-body__button--reset')).toHaveLength(1);
   });
 })
