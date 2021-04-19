@@ -9,7 +9,7 @@ export  default () => {
   const [squares, updateSquares] = useState(Array(9).fill(null));
   const [isXNextTurn, changeIsXTurn] = useState(true);
   const [movesHistory, updateMovesHistory] = useState([]);
-  const  winner = findWinner(squares);
+  const winner = findWinner(squares);
 
   const handleSquareClick = (i) => {
     if (winner || squares[i] !== null) return;
@@ -43,6 +43,14 @@ export  default () => {
     changeIsXTurn(!isXNextTurn);
   }
 
+  const getMoveRemind = () => {
+    return (
+      <>
+        Next turn is <b>{isXNextTurn ? 'X' : 'O'}</b>
+      </>
+    )
+  }
+
   return (
     <div className="app-body">
       <Board
@@ -50,7 +58,7 @@ export  default () => {
         onClick={handleSquareClick}>
       </Board>
       <div className="app-body__turn">
-        Next turn is <b>{isXNextTurn ? 'X' : 'O'}</b>
+        {getMoveRemind()}
       </div>
       <Button
         onClick={startNewGame}
