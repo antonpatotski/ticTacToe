@@ -15,6 +15,11 @@ export  default () => {
     changeIsXTurn(!isXNextTurn);
   }
 
+  const startNewGame = () => {
+    updateSquares(Array(9).fill(null));
+    changeIsXTurn(true);
+  }
+
   return (
     <div className="app-body">
       <Board
