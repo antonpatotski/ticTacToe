@@ -43,4 +43,21 @@ describe('App', () => {
 
     expect(squares).toEqual(["X", null, null, null, null, null, null, null, null]);
   })
+
+  test('should start new game', () => {
+    const wrapper = mount(<App />);
+    let squares = wrapper.find(Board).props().squares;
+
+    expect(squares.every(square => square === null)).toBe(true);
+
+    wrapper.find('.square').at(0).simulate('click'); // make first move
+    squares = wrapper.find(Board).props().squares;
+
+    expect(squares).toEqual(["X", null, null, null, null, null, null, null, null]);
+
+    wrapper.find('.app-body__button--new').at(0).simulate('click');
+    squares = wrapper.find(Board).props().squares;
+
+    expect(squares).toEqual([null, null, null, null, null, null, null, null, null]);
+  })
 })
