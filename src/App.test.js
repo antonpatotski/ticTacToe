@@ -73,4 +73,22 @@ describe('App', () => {
 
     expect(squares).toEqual(["X", null, null, null, null, null, null, null, null]);
   })
+
+  test('should reset move', () => {
+    const wrapper = mount(<App />);
+    let squares = wrapper.find(Board).props().squares;
+
+    expect(squares.every(square => square === null)).toBe(true);
+
+    wrapper.find('.square').at(0).simulate('click'); // make first move
+    wrapper.find('.square').at(2).simulate('click'); // make second move square
+    squares = wrapper.find(Board).props().squares;
+
+    expect(squares).toEqual(["X", null, "O", null, null, null, null, null, null]);
+
+    wrapper.find('.app-body__button--reset').at(0).simulate('click');
+    squares = wrapper.find(Board).props().squares;
+
+    expect(squares).toEqual(["X", null, null, null, null, null, null, null, null]);
+  })
 })
