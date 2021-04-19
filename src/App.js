@@ -5,17 +5,36 @@ import './App.scss';
 
 // eslint-disable-next-line
 export  default () => {
-  const squares = Array(9).fill(null);
-  const [isXNextTurn, changeTurn] = useState(true);
+  const [squares, updateSquares] = useState(Array(9).fill(null));
+  const [isXNextTurn, changeIsXTurn] = useState(true);
+
+  const handleSquareClick = (i) => {
+    const squaresCopy = [...squares];
+    squaresCopy[i] = isXNextTurn ? 'X' : 'O';
+    updateSquares(squaresCopy);
+    changeIsXTurn(!isXNextTurn);
+  }
 
   return (
     <div className="app-body">
-      <Board squares={squares}></Board>
+      <Board
+        squares={squares}
+        onClick={handleSquareClick}>
+      </Board>
       <div className="app-body__turn">
         Next turn is <b>{isXNextTurn ? 'X' : 'O'}</b>
       </div>
-      <Button className="app-body__button app-body__button--new" variant="primary">Start new game</Button>
-      <Button className="app-body__button app-body__button--reset" variant="info">Reset move</Button>
+      <Button
+        onClick={startNewGame}
+        className="app-body__button app-body__button--new"
+        variant="primary">
+        Start new game
+      </Button>
+      <Button
+        className="app-body__button app-body__button--reset"
+        variant="info">
+        Reset move
+      </Button>
     </div>
   )
 }
