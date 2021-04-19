@@ -1,14 +1,18 @@
 import { useState } from "react";
 import Button from 'react-bootstrap/Button'
 import Board from './components/board/board';
+import { findWinner } from "./services/helper";
 import './App.scss';
 
 // eslint-disable-next-line
 export  default () => {
   const [squares, updateSquares] = useState(Array(9).fill(null));
   const [isXNextTurn, changeIsXTurn] = useState(true);
+  const  winner = findWinner(squares);
 
   const handleSquareClick = (i) => {
+    if (winner || squares[i] !== null) return;
+
     const squaresCopy = [...squares];
     squaresCopy[i] = isXNextTurn ? 'X' : 'O';
     updateSquares(squaresCopy);
