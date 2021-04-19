@@ -29,7 +29,7 @@ describe('App', () => {
   test('should contain turn notice', () => {
     const wrapper = shallow(<App />);
 
-    expect(wrapper.find('.app-body__turn')).toBeDefined();
+    expect(wrapper.find('.app-body__turn')).toHaveLength(1);
   });
 
   test('should handle square click', () => {
@@ -90,5 +90,17 @@ describe('App', () => {
     squares = wrapper.find(Board).props().squares;
 
     expect(squares).toEqual(["X", null, null, null, null, null, null, null, null]);
+  })
+
+  test('should show player turn', () => {
+    const wrapper = mount(<App />);
+    let moveRemindText = wrapper.find('.app-body__turn').text();
+
+    expect(moveRemindText).toBe('Next turn is X');
+
+    wrapper.find('.square').at(0).simulate('click'); // make first move
+    moveRemindText = wrapper.find('.app-body__turn').text();
+
+    expect(moveRemindText).toBe('Next turn is O');
   })
 })
