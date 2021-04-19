@@ -119,4 +119,24 @@ describe('App', () => {
 
     expect(moveRemindText).toBe('The winner is X');
   })
+
+  test('should show draw', () => {
+    const wrapper = mount(<App />);
+    let moveRemindText = wrapper.find('.app-body__turn').text();
+
+    expect(moveRemindText).toBe('Next turn is X');
+
+    wrapper.find('.square').at(0).simulate('click'); // make first move
+    wrapper.find('.square').at(1).simulate('click');
+    wrapper.find('.square').at(2).simulate('click');
+    wrapper.find('.square').at(8).simulate('click');
+    wrapper.find('.square').at(7).simulate('click');
+    wrapper.find('.square').at(6).simulate('click');
+    wrapper.find('.square').at(3).simulate('click');
+    wrapper.find('.square').at(4).simulate('click');
+    wrapper.find('.square').at(5).simulate('click');
+    moveRemindText = wrapper.find('.app-body__turn').text();
+
+    expect(moveRemindText).toBe('Game over it\'s draw');
+  })
 })
