@@ -1,3 +1,4 @@
+import Button from 'react-bootstrap/Button'
 import Board from './components/board/board';
 import './App.scss';
 
@@ -8,8 +9,8 @@ export  default () => {
   return (
     <div className="app-body">
       <Board squares={arrayExample}></Board>
-      <button className="start-button">Start new game</button>
-      <button className="reset-move">Reset move</button>
+      <Button className="app-body__button" variant="primary">Start new game</Button>
+      <Button className="app-body__button" variant="info">Reset move</Button>
     </div>
   )
 }
