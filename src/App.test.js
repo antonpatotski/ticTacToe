@@ -13,4 +13,10 @@ describe('App', () => {
 
     expect(wrapper.find(Board)).toBeDefined();
   });
+
+  test('should contain start game button', () => {
+    const wrapper = shallow(<App />);
+
+    expect(wrapper.find('.start-button')).toBeDefined();
+  });
 })
