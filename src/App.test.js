@@ -25,4 +25,10 @@ describe('App', () => {
 
     expect(wrapper.find('.app-body__button--reset')).toHaveLength(1);
   });
+
+  test('should contain turn notice', () => {
+    const wrapper = shallow(<App />);
+
+    expect(wrapper.find('.app-body__turn')).toBeDefined();
+  });
 })
