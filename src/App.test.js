@@ -60,4 +60,17 @@ describe('App', () => {
 
     expect(squares).toEqual([null, null, null, null, null, null, null, null, null]);
   })
+
+  test('avoid to click twice on the same element', () => {
+    const wrapper = mount(<App />);
+    let squares = wrapper.find(Board).props().squares;
+
+    expect(squares.every(square => square === null)).toBe(true);
+
+    wrapper.find('.square').at(0).simulate('click'); // make first move
+    wrapper.find('.square').at(0).simulate('click'); // make second move on same square
+    squares = wrapper.find(Board).props().squares;
+
+    expect(squares).toEqual(["X", null, null, null, null, null, null, null, null]);
+  })
 })
